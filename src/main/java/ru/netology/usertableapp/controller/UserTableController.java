@@ -1,9 +1,5 @@
 package ru.netology.usertableapp.controller;
 
-import jakarta.transaction.HeuristicMixedException;
-import jakarta.transaction.HeuristicRollbackException;
-import jakarta.transaction.RollbackException;
-import jakarta.transaction.SystemException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

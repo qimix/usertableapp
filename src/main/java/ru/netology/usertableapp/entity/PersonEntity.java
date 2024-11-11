@@ -1,4 +1,5 @@
 package ru.netology.usertableapp.entity;
+
 import jakarta.persistence.*;
 import lombok.*;
 
