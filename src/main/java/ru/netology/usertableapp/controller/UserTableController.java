@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.netology.usertableapp.dto.PersonReq;
+import ru.netology.usertableapp.dto.PersonDto;
 import ru.netology.usertableapp.service.UserTableService;
 
 
@@ -23,6 +23,6 @@ public class UserTableController {
 
     @GetMapping("/persons/by-city")
     public String dataService(@RequestParam("name") String name) throws HeuristicRollbackException, SystemException, HeuristicMixedException, RollbackException {
-        return userTableService.getCity(new PersonReq(name));
+        return userTableService.getCity(new PersonDto(name));
     }
 }

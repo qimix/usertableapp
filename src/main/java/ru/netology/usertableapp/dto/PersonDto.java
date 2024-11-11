@@ -1,9 +1,12 @@
 package ru.netology.usertableapp.dto;
 
-public class PersonReq {
+import lombok.Data;
+
+@Data
+public class PersonDto {
     String name;
 
-    public PersonReq(String name) {
+    public PersonDto(String name) {
         this.name = name;
     }
 

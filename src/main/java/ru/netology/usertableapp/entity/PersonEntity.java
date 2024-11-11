@@ -1,4 +1,4 @@
-package ru.netology.usertableapp.model;
+package ru.netology.usertableapp.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Person {
+public class PersonEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;

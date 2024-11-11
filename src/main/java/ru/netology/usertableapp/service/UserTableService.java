@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.netology.usertableapp.dao.PersonDao;
-import ru.netology.usertableapp.dto.PersonReq;
+import ru.netology.usertableapp.dto.PersonDto;
 
 @Service
 public class UserTableService {
@@ -23,7 +23,7 @@ public class UserTableService {
     public UserTableService() {
     }
 
-    public String getCity(PersonReq personReq) throws HeuristicRollbackException, SystemException, HeuristicMixedException, RollbackException {
-        return personDao.getCity(personReq);
+    public String getCity(PersonDto personDto) throws HeuristicRollbackException, SystemException, HeuristicMixedException, RollbackException {
+        return personDao.getCity(personDto.getName());
     }
 }
