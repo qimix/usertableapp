@@ -22,7 +22,7 @@ public class UserTableController {
     }
 
     @GetMapping("/persons/by-city")
-    public String dataService(@RequestParam("name") String name) throws HeuristicRollbackException, SystemException, HeuristicMixedException, RollbackException {
+    public String dataService(@RequestParam("name") String name) {
         return userTableService.getCity(new PersonDto(name));
     }
 }

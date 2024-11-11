@@ -20,10 +20,7 @@ public class UserTableService {
         this.personDao = personDao;
     }
 
-    public UserTableService() {
-    }
-
-    public String getCity(PersonDto personDto) throws HeuristicRollbackException, SystemException, HeuristicMixedException, RollbackException {
+    public String getCity(PersonDto personDto) {
         return personDao.getCity(personDto.getName());
     }
 }

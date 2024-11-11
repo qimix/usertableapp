@@ -15,13 +15,13 @@ public class PersonDao {
     private EntityManager entityManager = entityManagerFactory.createEntityManager();
 
     @Transactional
-    public String getCity(String name) throws HeuristicRollbackException, SystemException, HeuristicMixedException, RollbackException {
+    public String getCity(String name){
         try {
             Query query = entityManager.createNativeQuery("select city from persons where name like :name");
             query.setParameter("name", name);
             return String.valueOf(query.getFirstResult());
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException();
         }
     }
 }
