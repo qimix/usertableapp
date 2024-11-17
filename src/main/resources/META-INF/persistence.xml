@@ -6,7 +6,7 @@
              version="2.2">
     <persistence-unit name="usertableapp">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>ru.netology.usertableapp.entity.Person</class>
+        <class>ru.netology.usertableapp.entity.PersonEntity</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:db1;DB_CLOSE_DELAY=-1" />
