@@ -19,6 +19,6 @@ public class UserTableController {
 
     @GetMapping("/persons/by-city")
     public String dataService(@RequestParam("name") String name) {
-        return userTableService.getCity(new PersonDto(name));
+        return userTableService.getPersonsByCity(new PersonDto(name));
     }
 }

@@ -19,7 +19,7 @@ public class UserTableService {
         this.personDao = personDao;
     }
 
-    public String getCity(PersonDto personDto) {
-        return personDao.getCity(personDto.getName()).get().getCity_of_living();
+    public String getPersonsByCity(PersonDto personDto) {
+        return personDao.getPersonsByCity(personDto.getName()).get().getCity_of_living();
     }
 }
