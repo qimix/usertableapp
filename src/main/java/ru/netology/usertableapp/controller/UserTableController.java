@@ -5,7 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.netology.usertableapp.dto.PersonDto;
+import ru.netology.usertableapp.entity.PersonEntity;
 import ru.netology.usertableapp.service.UserTableService;
+
+import java.util.List;
 
 
 @RestController
@@ -18,7 +21,7 @@ public class UserTableController {
     }
 
     @GetMapping("/persons/by-city")
-    public String dataService(@RequestParam("city") String city) {
+    public List<PersonEntity> dataService(@RequestParam("city") String city) {
         return userTableService.getPersonsByCity(new PersonDto(city));
     }
 }

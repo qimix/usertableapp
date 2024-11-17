@@ -7,6 +7,7 @@ import ru.netology.usertableapp.dao.PersonDao;
 import ru.netology.usertableapp.dto.PersonDto;
 import ru.netology.usertableapp.entity.PersonEntity;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,7 +20,7 @@ public class UserTableService {
         this.personDao = personDao;
     }
 
-    public String getPersonsByCity(PersonDto personDto) {
-        return personDao.getPersonsByCity(personDto.getCity()).get().getName();
+    public List<PersonEntity> getPersonsByCity(PersonDto personDto) {
+        return personDao.getPersonsByCity(personDto.getCity());
     }
 }

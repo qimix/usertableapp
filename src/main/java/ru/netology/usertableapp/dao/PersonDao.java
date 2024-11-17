@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import ru.netology.usertableapp.entity.PersonEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,13 +26,15 @@ public class PersonDao {
     }
 
     @Transactional
-    public Optional<PersonEntity> getPersonsByCity(String city) {
+    public List<PersonEntity> getPersonsByCity(String city) {
         try {
             Query query = entityManager.createNativeQuery("select * from persons where city = :city", PersonEntity.class);
-            return Optional.of((PersonEntity)query.setParameter("city", city).getSingleResult());
+            query.setParameter("city", city);
+            List<PersonEntity> personEntityList = query.getResultList();
+            return personEntityList;
         } catch (Exception e) {
             e.printStackTrace();
-            return Optional.empty();
+            return new ArrayList<>();
         }
     }
 }
