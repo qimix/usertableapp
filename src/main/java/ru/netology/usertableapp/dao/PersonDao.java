@@ -2,22 +2,19 @@ package ru.netology.usertableapp.dao;
 
 import jakarta.persistence.*;
 import jakarta.transaction.*;
+import net.bytebuddy.dynamic.DynamicType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
+import ru.netology.usertableapp.entity.PersonEntity;
+
+import java.util.List;
+import java.util.Optional;
 
 
 @Repository
 @Qualifier("personDao")
 public class PersonDao {
-    private EntityManagerFactory entityManagerFactory;
-
-    @Autowired
-    @Qualifier("entityManagerFactory")
-    public void setEntityManagerFactory(EntityManagerFactory entityManagerFactory) {
-        this.entityManagerFactory = entityManagerFactory;
-    }
-
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -28,13 +25,14 @@ public class PersonDao {
     }
 
     @Transactional
-    public String getCity(String name) {
+    public Optional<PersonEntity> getCity(String name) {
         try {
-            Query query = entityManager.createNativeQuery("select city from persons where name like :name");
+            Query query = entityManager.createNativeQuery("select * from persons where name = :name");
             query.setParameter("name", name);
-            return String.valueOf(query.getFirstResult());
+            return Optional.of((PersonEntity) query.getSingleResult());
         } catch (Exception e) {
-            throw new RuntimeException();
+            e.printStackTrace();
         }
+        return Optional.empty();
     }
 }

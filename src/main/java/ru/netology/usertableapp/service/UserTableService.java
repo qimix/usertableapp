@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.netology.usertableapp.dao.PersonDao;
 import ru.netology.usertableapp.dto.PersonDto;
+import ru.netology.usertableapp.entity.PersonEntity;
+
+import java.util.Optional;
 
 @Service
 public class UserTableService {
@@ -17,6 +20,6 @@ public class UserTableService {
     }
 
     public String getCity(PersonDto personDto) {
-        return personDao.getCity(personDto.getName());
+        return personDao.getCity(personDto.getName()).get().getCity_of_living();
     }
 }
