@@ -4,13 +4,13 @@ import lombok.Data;
 
 @Data
 public class PersonDto {
-    String name;
+    String city;
 
-    public PersonDto(String name) {
-        this.name = name;
+    public PersonDto(String city) {
+        this.city = city;
     }
 
-    public String getName() {
-        return name;
+    public String getCity() {
+        return city;
     }
 }

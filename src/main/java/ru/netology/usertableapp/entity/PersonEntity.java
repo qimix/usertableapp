@@ -20,7 +20,7 @@ public class PersonEntity {
     @Column
     private Integer age;
     @Column
-    private String city_of_living;
+    private String city;
 
     public Long getId() {
         return id;
@@ -38,7 +38,7 @@ public class PersonEntity {
         return age;
     }
 
-    public String getCity_of_living() {
-        return city_of_living;
+    public String getCity() {
+        return city;
     }
 }
