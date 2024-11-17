@@ -28,8 +28,7 @@ public class PersonDao {
     public Optional<PersonEntity> getPersonsByCity(String name) {
         try {
             Query query = entityManager.createNativeQuery("select * from persons where name = :name", PersonEntity.class);
-            query.setParameter("name", name);
-            return Optional.of((PersonEntity) query.getSingleResult());
+            return Optional.of((PersonEntity)query.setParameter("name", name).getSingleResult());
         } catch (Exception e) {
             e.printStackTrace();
             return Optional.empty();
