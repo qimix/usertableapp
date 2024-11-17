@@ -27,7 +27,7 @@ public class PersonDao {
     @Transactional
     public Optional<PersonEntity> getCity(String name) {
         try {
-            Query query = entityManager.createNativeQuery("select * from persons where name = :name");
+            Query query = entityManager.createNativeQuery("select * from persons where name = :name", PersonEntity.class);
             query.setParameter("name", name);
             return Optional.of((PersonEntity) query.getSingleResult());
         } catch (Exception e) {
