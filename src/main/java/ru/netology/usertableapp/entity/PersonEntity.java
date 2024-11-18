@@ -21,24 +21,4 @@ public class PersonEntity {
     private Integer age;
     @Column
     private String city;
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public String getCity() {
-        return city;
-    }
 }
