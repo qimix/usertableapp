@@ -10,7 +10,6 @@ import ru.netology.usertableapp.service.UserTableService;
 
 import java.util.List;
 
-
 @RestController
 public class UserTableController {
     UserTableService userTableService;

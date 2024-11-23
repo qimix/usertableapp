@@ -16,7 +16,7 @@ public class UserTableService {
 
     @Autowired
     @Qualifier("personDao")
-    public void setCustomerDao(PersonDao personDao) {
+    public void setPersonDao(PersonDao personDao) {
         this.personDao = personDao;
     }
 
