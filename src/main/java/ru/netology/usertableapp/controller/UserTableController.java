@@ -29,14 +29,16 @@ public class UserTableController {
         userTableService.savePersonEntity(personEntity);
     }
 
-/*    @DeleteMapping("/persons/delete-person")
-    public PersonEntity deletePersonController() {
-        return userTableService.getPersonsByCity(new PersonDto(city));
+    @PostMapping("/persons/delete-person")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void deletePersonController(@RequestBody PersonEntity personEntity) {
+        userTableService.deletePersonEntity(personEntity);
     }
 
-    @PatchMapping("/persons/update-person")
-    public PersonEntity updatePersonController() {
-        return userTableService.getPersonsByCity(new PersonDto(city));
-    }*/
+    @PostMapping("/persons/update-person")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void updatePersonController(@RequestBody PersonEntity personEntity) {
+        userTableService.updatePersonEntity(personEntity);
+    }
 
 }

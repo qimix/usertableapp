@@ -27,4 +27,12 @@ public class UserTableService {
     public void savePersonEntity(PersonEntity personEntity) {
         personDao.savePersonEntity(personEntity);
     }
+
+    public void deletePersonEntity(PersonEntity personEntity) {
+        personDao.deletePersonEntity(personEntity);
+    }
+
+    public void updatePersonEntity(PersonEntity personEntity) {
+        personDao.savePersonEntity(personEntity);
+    }
 }

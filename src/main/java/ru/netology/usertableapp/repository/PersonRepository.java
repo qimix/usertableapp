@@ -1,4 +1,5 @@
 package ru.netology.usertableapp.repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import ru.netology.usertableapp.dto.PersonDto;
 import ru.netology.usertableapp.entity.PersonEntity;

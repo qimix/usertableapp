@@ -25,4 +25,10 @@ public class PersonDao {
     public void savePersonEntity(PersonEntity personEntity) {
         personRepository.save(personEntity);
     }
+
+    @Transactional
+    public void deletePersonEntity(PersonEntity personEntity) {
+        personRepository.delete(personEntity);
+    }
+
 }
