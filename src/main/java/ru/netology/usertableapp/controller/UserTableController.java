@@ -2,6 +2,7 @@ package ru.netology.usertableapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.netology.usertableapp.dto.PersonDto;
 import ru.netology.usertableapp.entity.PersonEntity;
@@ -24,21 +25,21 @@ public class UserTableController {
     }
 
     @PostMapping("/persons/create-person")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void createPersonController(@RequestBody PersonEntity personEntity) {
+    public @ResponseBody ResponseEntity<String> createPersonController(@RequestBody PersonEntity personEntity) {
         userTableService.savePersonEntity(personEntity);
+        return new ResponseEntity<String>("Create status: ok", HttpStatus.OK);
     }
 
     @PostMapping("/persons/delete-person")
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public void deletePersonController(@RequestBody PersonEntity personEntity) {
+    public @ResponseBody ResponseEntity<String> deletePersonController(@RequestBody PersonEntity personEntity) {
         userTableService.deletePersonEntity(personEntity);
+        return new ResponseEntity<String>("Delete status: ok", HttpStatus.OK);
     }
 
     @PostMapping("/persons/update-person")
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public void updatePersonController(@RequestBody PersonEntity personEntity) {
+    public @ResponseBody ResponseEntity<String> updatePersonController(@RequestBody PersonEntity personEntity) {
         userTableService.updatePersonEntity(personEntity);
+        return new ResponseEntity<String>("Update status: ok", HttpStatus.OK);
     }
 
 }
