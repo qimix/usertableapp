@@ -23,4 +23,8 @@ public class UserTableService {
     public List<PersonEntity> getPersonsByCity(PersonDto personDto) {
         return personDao.getPersonsByCity(personDto.getCity());
     }
+
+    public void savePersonEntity(PersonEntity personEntity) {
+        personDao.savePersonEntity(personEntity);
+    }
 }

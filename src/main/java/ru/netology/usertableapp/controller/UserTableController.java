@@ -1,9 +1,8 @@
 package ru.netology.usertableapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import ru.netology.usertableapp.dto.PersonDto;
 import ru.netology.usertableapp.entity.PersonEntity;
 import ru.netology.usertableapp.service.UserTableService;
@@ -20,7 +19,24 @@ public class UserTableController {
     }
 
     @GetMapping("/persons/by-city")
-    public List<PersonEntity> dataService(@RequestParam("city") String city) {
+    public List<PersonEntity> getPersonByCityController(@RequestParam("city") String city) {
         return userTableService.getPersonsByCity(new PersonDto(city));
     }
+
+    @PostMapping("/persons/create-person")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createPersonController(@RequestBody PersonEntity personEntity) {
+        userTableService.savePersonEntity(personEntity);
+    }
+
+/*    @DeleteMapping("/persons/delete-person")
+    public PersonEntity deletePersonController() {
+        return userTableService.getPersonsByCity(new PersonDto(city));
+    }
+
+    @PatchMapping("/persons/update-person")
+    public PersonEntity updatePersonController() {
+        return userTableService.getPersonsByCity(new PersonDto(city));
+    }*/
+
 }
