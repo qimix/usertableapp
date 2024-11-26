@@ -4,10 +4,8 @@ import jakarta.transaction.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import ru.netology.usertableapp.dto.PersonDto;
 import ru.netology.usertableapp.entity.PersonEntity;
 import ru.netology.usertableapp.repository.PersonRepository;
-import ru.netology.usertableapp.repository.SavePersonRepository;
 
 import java.util.List;
 
@@ -18,10 +16,6 @@ public class PersonDao {
     @Qualifier("personRepository")
     PersonRepository personRepository;
 
-    @Autowired
-    @Qualifier("savePersonRepository")
-    SavePersonRepository savePersonRepository;
-
     @Transactional
     public List<PersonEntity> getPersonsByCity(String city) {
         return personRepository.findPersonEntityByCity(city);
@@ -29,6 +23,6 @@ public class PersonDao {
 
     @Transactional
     public void savePersonEntity(PersonEntity personEntity) {
-        savePersonRepository.save(personEntity);
+        personRepository.save(personEntity);
     }
 }
